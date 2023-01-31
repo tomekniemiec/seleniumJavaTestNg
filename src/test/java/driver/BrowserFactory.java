@@ -3,16 +3,20 @@ package driver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 
 public class BrowserFactory {
     public static WebDriver getDriver(BrowserType browserType) {
         switch (browserType) {
             case CHROME:
-                System.setProperty("webdriver.chrome.driver", "/Users/tmk/IdeaProjects/seleniumJavaTestNg/src/main/resources/chromedriver");
+                WebDriverManager.chromedriver().setup();
                 return new ChromeDriver();
             case FIREFOX:
-                System.setProperty("webdriver.gecko.driver", "path_to_gecko_driver");
                 return new FirefoxDriver();
+            case SAFARI:
+                return new SafariDriver();
             default:
                 throw new IllegalStateException("Unknown browser type! Please check your configuration");
         }
