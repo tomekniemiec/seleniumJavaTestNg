@@ -25,7 +25,6 @@ public class LoginPage {
     private WebElement getErrorMessage;
 
 
-
     public LoginPage() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
@@ -49,6 +48,7 @@ public class LoginPage {
         submitLoginButton.click();
         return new ProductsPage();
     }
+
     public LoginPage clickSubmitLoginButtonWhenFailed() {
         logger.info("Clicking submit login button");
         WaitForElement.waitUntilElementClickable(submitLoginButton);

@@ -7,17 +7,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariDriver;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 
 public class BrowserFactory {
 
     private static final String MESSAGE_UNKNOWN_BROWSER = "Unknown browser type! Please check your configuration";
-    private BrowserType browserType;
-    private boolean isRemoteRun;
+    private final BrowserType browserType;
+    private final boolean isRemoteRun;
 
     public BrowserFactory(BrowserType browserType, boolean isRemoteRun) {
         this.browserType = browserType;

@@ -4,14 +4,14 @@ import org.testng.annotations.Test;
 import pages.objects.LoginPage;
 
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
 
 
 public class FailedLoginTest extends TestBase {
 
+    LoginPage loginPage = new LoginPage();
+
     @Test
     public void asUserTryToLogInWithIncorrectLoginAndPassword1() {
-        LoginPage loginPage = new LoginPage();
         String errorMessage = loginPage.typeUsername("standard_user")
                 .typePassword("secret_sauceaaaaaaaaaaaaaa")
                 .clickSubmitLoginButtonWhenFailed()
@@ -22,7 +22,6 @@ public class FailedLoginTest extends TestBase {
 
     @Test
     public void asUserTryToLogInWithIncorrectLoginAndPassword2() {
-        LoginPage loginPage = new LoginPage();
         String errorMessage = loginPage.typeUsername("standard_user")
                 .typePassword("secret_sauceaaaaaaaaaaaaaa")
                 .clickSubmitLoginButtonWhenFailed()
@@ -33,7 +32,6 @@ public class FailedLoginTest extends TestBase {
 
     @Test
     public void asUserTryToLogInWithIncorrectLoginAndPassword3() {
-        LoginPage loginPage = new LoginPage();
         String errorMessage = loginPage.typeUsername("standard_user")
                 .typePassword("secret_sauceaaaaaaaaaaaaaa")
                 .clickSubmitLoginButtonWhenFailed()
@@ -44,7 +42,6 @@ public class FailedLoginTest extends TestBase {
 
     @Test
     public void asUserTryToLogInWithIncorrectLoginAndPassword4() {
-        LoginPage loginPage = new LoginPage();
         String errorMessage = loginPage.typeUsername("standard_user")
                 .typePassword("secret_sauceaaaaaaaaaaaaaa")
                 .clickSubmitLoginButtonWhenFailed()

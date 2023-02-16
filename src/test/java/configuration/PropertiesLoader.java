@@ -9,7 +9,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class PropertiesLoader {
-    private Logger logger = LogManager.getLogger(PropertiesLoader.class);
+    private final Logger logger = LogManager.getLogger(PropertiesLoader.class);
 
     public Properties getPropertiesFromFile(String propertiesFileName) {
         InputStream inputStream = null;
@@ -17,7 +17,7 @@ public class PropertiesLoader {
         try {
             logger.info("Trying to lad properties with filename: " + propertiesFileName);
             inputStream = getClass().getClassLoader().getResourceAsStream(propertiesFileName);
-            if (inputStream!= null) {
+            if (inputStream != null) {
                 properties.load(inputStream);
                 logger.info("Successfully loaded properties with filename: " + propertiesFileName);
             } else {
