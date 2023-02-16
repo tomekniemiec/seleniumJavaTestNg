@@ -10,7 +10,7 @@ import static org.testng.Assert.assertTrue;
 public class FailedLoginTest extends TestBase {
 
     @Test
-    public void NegativeLogin() {
+    public void asUserTryToLogInWithIncorrectLoginAndPassword1() {
         LoginPage loginPage = new LoginPage();
         String errorMessage = loginPage.typeUsername("standard_user")
                 .typePassword("secret_sauceaaaaaaaaaaaaaa")
@@ -21,7 +21,7 @@ public class FailedLoginTest extends TestBase {
     }
 
     @Test
-    public void NegativeLogin2() {
+    public void asUserTryToLogInWithIncorrectLoginAndPassword2() {
         LoginPage loginPage = new LoginPage();
         String errorMessage = loginPage.typeUsername("standard_user")
                 .typePassword("secret_sauceaaaaaaaaaaaaaa")
@@ -32,7 +32,7 @@ public class FailedLoginTest extends TestBase {
     }
 
     @Test
-    public void NegativeLogin3() {
+    public void asUserTryToLogInWithIncorrectLoginAndPassword3() {
         LoginPage loginPage = new LoginPage();
         String errorMessage = loginPage.typeUsername("standard_user")
                 .typePassword("secret_sauceaaaaaaaaaaaaaa")
@@ -43,7 +43,7 @@ public class FailedLoginTest extends TestBase {
     }
 
     @Test
-    public void NegativeLogin4() {
+    public void asUserTryToLogInWithIncorrectLoginAndPassword4() {
         LoginPage loginPage = new LoginPage();
         String errorMessage = loginPage.typeUsername("standard_user")
                 .typePassword("secret_sauceaaaaaaaaaaaaaa")

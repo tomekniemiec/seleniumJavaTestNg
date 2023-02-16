@@ -9,7 +9,7 @@ import static org.testng.Assert.assertTrue;
 public class PositiveLoginTest extends TestBase {
 
     @Test
-    public void PositiveLogin() {
+    public void asUserLoginUsingValidLoginAndPassword1() {
         LoginPage loginPage = new LoginPage();
         boolean isLogoDisplayed = loginPage.typeUsername("standard_user")
                 .typePassword("secret_sauce")
@@ -19,7 +19,7 @@ public class PositiveLoginTest extends TestBase {
     }
 
     @Test
-    public void PositiveLogin2() {
+    public void asUserLoginUsingValidLoginAndPassword2() {
         LoginPage loginPage = new LoginPage();
         boolean isLogoDisplayed = loginPage.typeUsername("standard_user")
                 .typePassword("secret_sauce")
@@ -29,7 +29,7 @@ public class PositiveLoginTest extends TestBase {
     }
 
     @Test
-    public void PositiveLogin3() {
+    public void asUserLoginUsingValidLoginAndPassword3() {
         LoginPage loginPage = new LoginPage();
         boolean isLogoDisplayed = loginPage.typeUsername("standard_user")
                 .typePassword("secret_sauce")
@@ -39,7 +39,7 @@ public class PositiveLoginTest extends TestBase {
     }
 
     @Test
-    public void PositiveLogin4() {
+    public void asUserLoginUsingValidLoginAndPassword4() {
         LoginPage loginPage = new LoginPage();
         boolean isLogoDisplayed = loginPage.typeUsername("standard_user")
                 .typePassword("secret_sauce")
