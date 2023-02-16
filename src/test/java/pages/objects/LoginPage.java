@@ -21,6 +21,9 @@ public class LoginPage {
     @FindBy(id = "login-button")
     private WebElement submitLoginButton;
 
+    @FindBy(className = "error-message-container")
+    private WebElement getErrorMessage;
+
 
 
     public LoginPage() {
@@ -45,5 +48,15 @@ public class LoginPage {
         WaitForElement.waitUntilElementClickable(submitLoginButton);
         submitLoginButton.click();
         return new ProductsPage();
+    }
+    public LoginPage clickSubmitLoginButtonWhenFailed() {
+        logger.info("Clicking submit login button");
+        WaitForElement.waitUntilElementClickable(submitLoginButton);
+        submitLoginButton.click();
+        return this;
+    }
+
+    public String getErrorMessage() {
+        return getErrorMessage.getText();
     }
 }
