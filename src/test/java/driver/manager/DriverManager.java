@@ -30,8 +30,10 @@ public class DriverManager {
 
         if (browserType == null) {
             browserType = getBrowserToRun();
+            browser = new BrowserFactory(browserType, getIsRemoteRun()).getBrowser();
+        } else {
+            browser = new BrowserFactory(browserType, getIsRemoteRun()).getBrowser();
         }
-        browser = new BrowserFactory(browserType, getIsRemoteRun()).getBrowser();
         browserTypeThreadLocal.set(browserType);
         webDriverThreadLocal.set(browser);
     }
