@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ProductsPage {
 
-    Logger logger = LogManager.getRootLogger();
+    private Logger logger = LogManager.getLogger(ProductsPage.class);
 
     @FindBys({@FindBy(xpath = "//div[@class='app_logo']")})
     List<WebElement> logo;

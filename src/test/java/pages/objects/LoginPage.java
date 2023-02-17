@@ -10,7 +10,7 @@ import waits.WaitForElement;
 
 public class LoginPage {
 
-    Logger logger = LogManager.getRootLogger();
+    private Logger logger = LogManager.getLogger(LoginPage.class);
 
     @FindBy(id = "user-name")
     private WebElement userName;
@@ -37,7 +37,7 @@ public class LoginPage {
     }
 
     public LoginPage typePassword(String pass) {
-        logger.info("Entering password: xxxxxx");
+        logger.info("Entering password: " + pass);
         password.sendKeys(pass);
         return this;
     }
