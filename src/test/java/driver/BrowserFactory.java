@@ -44,10 +44,18 @@ public class BrowserFactory {
         } else {
             switch (browserType) {
                 case CHROME:
+                    ChromeOptions co = new ChromeOptions();
+                    if (TestRunProperties.getHeadlessModeToRun()) {
+                        co.addArguments("--headless");
+                    }
                     WebDriverManager.chromedriver().setup();
-                    return new ChromeDriver();
+                    return new ChromeDriver(co);
                 case FIREFOX:
-                    return new FirefoxDriver();
+                    FirefoxOptions fo = new FirefoxOptions();
+                    if (TestRunProperties.getHeadlessModeToRun()) {
+                        fo.addArguments("--headless");
+                    }
+                    return new FirefoxDriver(fo);
                 case SAFARI:
                     return new SafariDriver();
                 default:
@@ -57,7 +65,7 @@ public class BrowserFactory {
     }
 
     private WebDriver getRemoteWebDriver(DesiredCapabilities desiredCapabilities) {
-        RemoteWebDriver remoteWebDriver = null;
+        RemoteWebDriver remoteWebDriver;
 
         try {
             remoteWebDriver = new RemoteWebDriver(new URL(TestRunProperties.getGridUrl()), desiredCapabilities);

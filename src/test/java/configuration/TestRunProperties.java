@@ -15,4 +15,8 @@ public class TestRunProperties {
     public static boolean getIsRemoteRun() {
         return Boolean.parseBoolean(ConfigurationProperties.getProperties().getProperty("is.remote.run"));
     }
+
+    public static boolean getHeadlessModeToRun() {
+        return Boolean.parseBoolean(ConfigurationProperties.getProperties().getProperty("headless"));
+    }
 }
