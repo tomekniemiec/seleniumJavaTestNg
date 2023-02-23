@@ -1,16 +1,25 @@
-# seleniumJavaTestNg
+# java_selenium_testng
 
-Framework to tests
-Java
+Framework for testing
+
 Selenium > 4
+
 TestNG
+
 AllureReport + screenshots after failed test
+
 SeleniumGrid - run locally or remote (configuration.properties)
+
 JenkinsFile - pipeline to run tests in Jenkins
+
 headless mode (configuration.properties)
+
 the ability to run on different web browsers (configuration.properties)
-+
+
+and 
+
 few simply tests (POM)
+
 
 @2023
 
