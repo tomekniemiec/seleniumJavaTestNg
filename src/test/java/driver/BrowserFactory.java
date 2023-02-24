@@ -31,12 +31,14 @@ public class BrowserFactory {
             DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
             switch (browserType) {
                 case CHROME:
-                    ChromeOptions chromeOptions = new ChromeOptions();
-                    desiredCapabilities.merge(chromeOptions);
+                    ChromeOptions co = new ChromeOptions();
+                    co.addArguments("--headless");
+                    desiredCapabilities.merge(co);
                     return getRemoteWebDriver(desiredCapabilities);
                 case FIREFOX:
-                    FirefoxOptions firefoxOptions = new FirefoxOptions();
-                    desiredCapabilities.merge(firefoxOptions);
+                    FirefoxOptions fo = new FirefoxOptions();
+                    fo.addArguments("--headless");
+                    desiredCapabilities.merge(fo);
                     return getRemoteWebDriver(desiredCapabilities);
                 default:
                     throw new IllegalStateException(MESSAGE_UNKNOWN_BROWSER);
