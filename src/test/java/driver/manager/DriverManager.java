@@ -17,14 +17,6 @@ public class DriverManager {
     private DriverManager() {
     }
 
-    public static WebDriver getWebDriver() {
-
-        if (webDriverThreadLocal.get() == null) {
-            throw new IllegalStateException("WebDriver Instance was null! Please create instance of WebDriver using setWebDriver!");
-        }
-        return webDriverThreadLocal.get();
-    }
-
     public static void setWebDriver(BrowserType browserType) {
 
         WebDriver browser = null;
@@ -40,6 +32,14 @@ public class DriverManager {
 
         browserTypeThreadLocal.set(browserType);
         webDriverThreadLocal.set(browser);
+    }
+
+    public static WebDriver getWebDriver() {
+
+        if (webDriverThreadLocal.get() == null) {
+            throw new IllegalStateException("WebDriver Instance was null! Please create instance of WebDriver using setWebDriver!");
+        }
+        return webDriverThreadLocal.get();
     }
 
     public static void disposeDriver() {

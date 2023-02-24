@@ -37,14 +37,8 @@ public class TestBase {
 
     @AfterMethod
     public void afterTest(ITestResult result) {
-        if (result.getStatus() == ITestResult.FAILURE) {
-            Allure.getLifecycle().addAttachment(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")), "image/png", ".png", takeScreenshot());
-            DriverManager.disposeDriver();
-        }
+        DriverManager.disposeDriver();
     }
 
-    private byte[] takeScreenshot() {
-        return ((TakesScreenshot) DriverManager.getWebDriver()).getScreenshotAs(OutputType.BYTES);
-    }
 
 }

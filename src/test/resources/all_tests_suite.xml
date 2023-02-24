@@ -17,4 +17,11 @@
         </classes>
     </test>
 
+    <test name="Products Tests">
+        <parameter name="browser" value="CHROME"/>
+        <classes>
+            <class name="tests.ProductsTest"/>
+        </classes>
+    </test>
+
 </suite>
