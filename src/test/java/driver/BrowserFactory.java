@@ -32,12 +32,16 @@ public class BrowserFactory {
             switch (browserType) {
                 case CHROME:
                     ChromeOptions co = new ChromeOptions();
-                    co.addArguments("--headless");
+                    if (TestRunProperties.getHeadlessModeToRun()) {
+                        co.addArguments("--headless");
+                    }
                     desiredCapabilities.merge(co);
                     return getRemoteWebDriver(desiredCapabilities);
                 case FIREFOX:
                     FirefoxOptions fo = new FirefoxOptions();
-                    fo.addArguments("--headless");
+                    if (TestRunProperties.getHeadlessModeToRun()) {
+                        fo.addArguments("--headless");
+                    }
                     desiredCapabilities.merge(fo);
                     return getRemoteWebDriver(desiredCapabilities);
                 default:
