@@ -11,7 +11,7 @@ import java.util.List;
 
 public class DriverEventListener implements WebDriverListener {
 
-    private static Logger logger = LogManager.getLogger(DriverEventListener.class);
+    private static final Logger logger = LogManager.getLogger(DriverEventListener.class);
 
     @Override
     public void beforeFindElement(WebElement element, By locator) {

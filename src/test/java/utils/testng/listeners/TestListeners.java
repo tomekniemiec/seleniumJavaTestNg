@@ -9,7 +9,7 @@ import utils.ScreenShotMaker;
 
 public class TestListeners implements ITestListener {
 
-    private Logger logger = LogManager.getLogger(TestListeners.class);
+    private final Logger logger = LogManager.getLogger(TestListeners.class);
 
     @Override
     public void onTestStart(ITestResult result) {
