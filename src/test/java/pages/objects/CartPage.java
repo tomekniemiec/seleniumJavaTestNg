@@ -11,16 +11,10 @@ import waits.WaitForElement;
 
 import java.util.List;
 
-public class CartPage {
+public class CartPage extends BasePage {
 
     @FindBys({@FindBy(css = ".cart_item")})
     List<WebElement> cartItems;
-
-    private Logger logger = LogManager.getLogger(CartPage.class);
-
-    public CartPage() {
-        PageFactory.initElements(DriverManager.getWebDriver(), this);
-    }
 
     public int getProductNumberInCart() {
         WaitForElement.waitUntilElementClickable(cartItems.get(0));

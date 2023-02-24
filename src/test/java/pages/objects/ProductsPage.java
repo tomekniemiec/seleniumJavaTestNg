@@ -11,9 +11,7 @@ import waits.WaitForElement;
 
 import java.util.List;
 
-public class ProductsPage {
-
-    private Logger logger = LogManager.getLogger(ProductsPage.class);
+public class ProductsPage extends BasePage {
 
     @FindBys({@FindBy(xpath = "//div[@class='app_logo']")})
     List<WebElement> logo;
@@ -23,10 +21,6 @@ public class ProductsPage {
 
     @FindBy(css = ".shopping_cart_link")
     WebElement shoppingCartLink;
-
-    public ProductsPage() {
-        PageFactory.initElements(DriverManager.getWebDriver(), this);
-    }
 
     public boolean isLogoDisplayed() {
         WaitForElement.waitForElementVisible(logo.get(0));

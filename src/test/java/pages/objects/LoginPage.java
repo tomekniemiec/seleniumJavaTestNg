@@ -8,9 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import waits.WaitForElement;
 
-public class LoginPage {
-
-    private Logger logger = LogManager.getLogger(LoginPage.class);
+public class LoginPage extends BasePage {
 
     @FindBy(id = "user-name")
     private WebElement userName;
@@ -24,33 +22,28 @@ public class LoginPage {
     @FindBy(className = "error-message-container")
     private WebElement getErrorMessage;
 
-
-    public LoginPage() {
-        PageFactory.initElements(DriverManager.getWebDriver(), this);
-    }
-
     public LoginPage typeUsername(String user) {
-        logger.info("Entering username: " + user);
+        log("Entering username: " + user);
         WaitForElement.waitForElementVisible(userName);
         userName.sendKeys(user);
         return this;
     }
 
     public LoginPage typePassword(String pass) {
-        logger.info("Entering password: " + pass);
+        log("Entering password: " + pass);
         password.sendKeys(pass);
         return this;
     }
 
     public ProductsPage clickSubmitLoginButton() {
-        logger.info("Clicking submit login button");
+        log("Clicking submit login button");
         WaitForElement.waitUntilElementClickable(submitLoginButton);
         submitLoginButton.click();
         return new ProductsPage();
     }
 
     public LoginPage clickSubmitLoginButtonWhenFailed() {
-        logger.info("Clicking submit login button");
+        log("Clicking submit login button");
         WaitForElement.waitUntilElementClickable(submitLoginButton);
         submitLoginButton.click();
         return this;
