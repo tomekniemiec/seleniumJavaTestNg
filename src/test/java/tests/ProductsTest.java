@@ -11,8 +11,7 @@ public class ProductsTest extends TestBase {
     @Test
     public void addProductToCart() {
         LoginPage loginPage = new LoginPage();
-        Integer productsInCart = loginPage.typeUsername("standard_user")
-                .typePassword("secret_sauce")
+        Integer productsInCart = loginPage.logIn()
                 .clickSubmitLoginButton()
                 .addFirstProductToCart()
                 .goToCartPage()
