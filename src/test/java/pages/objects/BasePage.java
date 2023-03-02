@@ -7,13 +7,13 @@ import org.openqa.selenium.support.PageFactory;
 
 public abstract class BasePage {
 
-    private final Logger logger = LogManager.getLogger(this.getClass().getName());
+    private Logger logger = LogManager.getLogger(this.getClass().getName());
 
     public BasePage() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
-    protected Logger log(String s) {
+    protected Logger log() {
         return logger;
     }
 

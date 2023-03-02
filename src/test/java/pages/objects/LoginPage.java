@@ -20,14 +20,14 @@ public class LoginPage extends BasePage {
     private WebElement getErrorMessage;
 
     public LoginPage typeUsername(String user) {
-        log("Entering username: " + user);
+        log().info("Entering username: " + user);
         WaitForElement.waitForElementVisible(userName);
         userName.sendKeys(user);
         return this;
     }
 
     public LoginPage typePassword(String pass) {
-        log("Entering password: " + pass);
+        log().info("Entering password: " + pass);
         password.sendKeys(pass);
         return this;
     }
@@ -45,14 +45,14 @@ public class LoginPage extends BasePage {
     }
 
     public ProductsPage clickSubmitLoginButton() {
-        log("Clicking submit login button");
+        log().info("Clicking submit login button");
         WaitForElement.waitUntilElementClickable(submitLoginButton);
         submitLoginButton.click();
         return new ProductsPage();
     }
 
     public LoginPage clickSubmitLoginButtonWhenFailed() {
-        log("Clicking submit login button");
+        log().info("Clicking submit login button");
         WaitForElement.waitUntilElementClickable(submitLoginButton);
         submitLoginButton.click();
         return this;
