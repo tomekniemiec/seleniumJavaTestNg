@@ -13,7 +13,6 @@ public class ProductsTest extends TestBase {
     public void addProductToCart() {
         LoginPage loginPage = new LoginPage();
         Integer productsInCart = loginPage.logIn()
-                .clickSubmitLoginButton()
                 .addFirstProductToCart()
                 .goToCartPage()
                 .getProductNumberInCart();
@@ -25,7 +24,6 @@ public class ProductsTest extends TestBase {
     public void shouldSeeCorrectNumberOfProducts() {
         LoginPage loginPage = new LoginPage();
         Integer numberOfProducts = loginPage.logIn()
-                .clickSubmitLoginButton()
                 .getProductItemsCount();
 
         assertEquals(numberOfProducts, 6, "Incorrect number of products");
@@ -34,11 +32,9 @@ public class ProductsTest extends TestBase {
     @Test
     public void shouldNotSeeProductsInCartAfterLoginByLocalStorage() {
         LoginPage loginPage = new LoginPage();
-        loginPage.logIn()
-                .clickSubmitLoginButton();
+        loginPage.logIn();
 
         assertEquals(getLocalStorageSize(), 0, "Incorrect number of products in cart");
-
     }
 
 }

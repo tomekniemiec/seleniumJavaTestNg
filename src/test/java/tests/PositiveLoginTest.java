@@ -12,7 +12,6 @@ public class PositiveLoginTest extends TestBase {
     public void asUserLoginUsingValidLoginAndPassword1() {
         LoginPage loginPage = new LoginPage();
         boolean isLogoDisplayed = loginPage.logIn()
-                .clickSubmitLoginButton()
                 .isLogoDisplayed();
         assertTrue(isLogoDisplayed, "Should see logo after correct log in!!!");
     }
@@ -21,7 +20,6 @@ public class PositiveLoginTest extends TestBase {
     public void asUserLoginUsingValidLoginAndPassword2() {
         LoginPage loginPage = new LoginPage();
         boolean isLogoDisplayed = loginPage.logIn()
-                .clickSubmitLoginButton()
                 .isLogoDisplayed();
         assertTrue(isLogoDisplayed, "Should see logo after correct log in!!!");
     }
@@ -30,7 +28,6 @@ public class PositiveLoginTest extends TestBase {
     public void asUserLoginUsingValidLoginAndPassword3() {
         LoginPage loginPage = new LoginPage();
         boolean isLogoDisplayed = loginPage.logIn()
-                .clickSubmitLoginButton()
                 .isLogoDisplayed();
         assertTrue(isLogoDisplayed, "Should see logo after correct log in!!!");
     }
@@ -39,7 +36,6 @@ public class PositiveLoginTest extends TestBase {
     public void asUserLoginUsingValidLoginAndPassword4() {
         LoginPage loginPage = new LoginPage();
         boolean isLogoDisplayed = loginPage.logIn()
-                .clickSubmitLoginButton()
                 .isLogoDisplayed();
         assertTrue(isLogoDisplayed, "Should see logo after correct log in!!!");
     }

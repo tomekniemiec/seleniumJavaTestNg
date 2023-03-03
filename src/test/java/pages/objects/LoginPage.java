@@ -32,10 +32,11 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public LoginPage logIn() {
+    public ProductsPage logIn() {
         userName.sendKeys(UserProperties.getUsernameStandard());
         password.sendKeys(UserProperties.getPasswordValid());
-        return this;
+        clickSubmitLoginButton();
+        return new ProductsPage();
     }
 
     public LoginPage logIn(String username, String password) {
