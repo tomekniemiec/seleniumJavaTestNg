@@ -15,6 +15,9 @@ public class ProductsPage extends BasePage {
     @FindBys({@FindBy(css = ".pricebar button")})
     List<WebElement> addToCartButtonList;
 
+    @FindBys({@FindBy(css = ".inventory_item")})
+    List<WebElement> productItems;
+
     @FindBy(css = ".shopping_cart_link")
     WebElement shoppingCartLink;
 
@@ -34,5 +37,8 @@ public class ProductsPage extends BasePage {
         return new CartPage();
     }
 
-
+    public Integer getProductItemsCount() {
+        WaitForElement.waitUntilElementClickable(productItems.get(0));
+        return productItems.size();
+    }
 }

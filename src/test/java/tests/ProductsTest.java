@@ -20,4 +20,14 @@ public class ProductsTest extends TestBase {
         assertEquals(productsInCart, 1, "Product should be added to cart");
     }
 
+    @Test
+    public void shouldSeeCorrectNumberOfProducts() {
+        LoginPage loginPage = new LoginPage();
+        Integer numberOfProducts = loginPage.logIn()
+                .clickSubmitLoginButton()
+                .getProductItemsCount();
+
+        assertEquals(numberOfProducts, 6, "Incorrect number of products");
+    }
+
 }
