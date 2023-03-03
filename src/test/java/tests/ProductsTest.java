@@ -30,4 +30,14 @@ public class ProductsTest extends TestBase {
         assertEquals(numberOfProducts, 6, "Incorrect number of products");
     }
 
+    @Test
+    public void shouldNotSeeProductsInCartAfterLoginByLocalStorage() {
+        LoginPage loginPage = new LoginPage();
+        loginPage.logIn()
+                .clickSubmitLoginButton();
+
+        assertEquals(getLocalStorageSize(), 0, "Incorrect number of products in cart");
+
+    }
+
 }
