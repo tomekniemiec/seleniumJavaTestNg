@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 import pages.objects.LoginPage;
 
 import static org.testng.Assert.assertEquals;
+import static utils.Helper.getLocalStorageSize;
 
 
 public class ProductsTest extends TestBase {
