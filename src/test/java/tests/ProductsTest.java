@@ -10,7 +10,7 @@ import static utils.Helper.getLocalStorageSize;
 public class ProductsTest extends TestBase {
 
     @Test
-    public void addProductToCart() {
+    public void shouldAddProductToCart() {
         LoginPage loginPage = new LoginPage();
         Integer productsInCart = loginPage.logIn()
                 .addFirstProductToCart()
