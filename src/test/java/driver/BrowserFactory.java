@@ -9,7 +9,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.safari.SafariDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -32,6 +31,7 @@ public class BrowserFactory {
             switch (browserType) {
                 case CHROME:
                     ChromeOptions co = new ChromeOptions();
+                    co.addArguments("--remote-allow-origins=*");
                     if (TestRunProperties.getHeadlessModeToRun()) {
                         co.addArguments("--headless");
                     }
@@ -39,6 +39,7 @@ public class BrowserFactory {
                     return getRemoteWebDriver(desiredCapabilities);
                 case FIREFOX:
                     FirefoxOptions fo = new FirefoxOptions();
+                    fo.addArguments("--remote-allow-origins=*");
                     if (TestRunProperties.getHeadlessModeToRun()) {
                         fo.addArguments("--headless");
                     }
@@ -51,6 +52,7 @@ public class BrowserFactory {
             switch (browserType) {
                 case CHROME:
                     ChromeOptions co = new ChromeOptions();
+                    co.addArguments("--remote-allow-origins=*");
                     if (TestRunProperties.getHeadlessModeToRun()) {
                         co.addArguments("--headless");
                     }
@@ -58,12 +60,11 @@ public class BrowserFactory {
                     return new ChromeDriver(co);
                 case FIREFOX:
                     FirefoxOptions fo = new FirefoxOptions();
+                    fo.addArguments("--remote-allow-origins=*");
                     if (TestRunProperties.getHeadlessModeToRun()) {
                         fo.addArguments("--headless");
                     }
                     return new FirefoxDriver(fo);
-                case SAFARI:
-                    return new SafariDriver();
                 default:
                     throw new IllegalStateException(MESSAGE_UNKNOWN_BROWSER);
             }
