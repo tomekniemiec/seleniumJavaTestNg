@@ -21,6 +21,18 @@ public class ProductsTest extends TestBase {
     }
 
     @Test
+    public void shouldRemoveProductFromCart() {
+        LoginPage loginPage = new LoginPage();
+        Integer productsInCart = loginPage.logIn()
+                .addFirstProductToCart()
+                .goToCartPage()
+                .removeAllProducts()
+                .getProductNumberInCart();
+
+        assertEquals(productsInCart, 0, "Product should be removed to cart");
+    }
+
+    @Test
     public void shouldSeeCorrectNumberOfProducts() {
         LoginPage loginPage = new LoginPage();
         Integer numberOfProducts = loginPage.logIn()
