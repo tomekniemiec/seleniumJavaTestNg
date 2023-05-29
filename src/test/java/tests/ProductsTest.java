@@ -22,6 +22,17 @@ public class ProductsTest extends TestBase {
     }
 
     @Test
+    public void shouldAddFewProductsToCart() {
+        LoginPage loginPage = new LoginPage();
+        Integer productsInCart = loginPage.logIn()
+                .addAllProductsToCart()
+                .goToCartPage()
+                .getProductNumberInCart();
+
+        assertEquals(productsInCart, 6, "Product should be added to cart");
+    }
+
+    @Test
     public void shouldRemoveProductFromCart() {
         LoginPage loginPage = new LoginPage();
         Integer productsInCart = loginPage.logIn()

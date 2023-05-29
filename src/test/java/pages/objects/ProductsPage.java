@@ -43,6 +43,12 @@ public class ProductsPage extends BasePage {
         return this;
     }
 
+    public ProductsPage addAllProductsToCart() {
+        WaitForElement.waitUntilElementClickable(addToCartButtonList.get(0));
+        addToCartButtonList.forEach(WebElement::click);
+        return this;
+    }
+
     public ProductsPage setOrderPriceFromLoToHi() {
         Select dropdown = new Select(dropdownElement);
         dropdown.selectByValue("lohi");
