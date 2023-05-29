@@ -75,7 +75,7 @@ public class ProductsTest extends TestBase {
     }
 
     @Test
-    public void shouldNextProductHasHigherPriceWhenOrderFromLoToHi() {
+    public void shouldSortProductsPriceFromLoToHi() {
         LoginPage loginPage = new LoginPage();
         boolean isHigherPrice = loginPage.logIn()
                 .setOrderPriceFromLoToHi()
