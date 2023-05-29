@@ -10,4 +10,8 @@ public class UserProperties {
         return ConfigurationProperties.getProperties().getProperty("password_valid");
     }
 
+    public static String getPasswordInvalid() {
+        return ConfigurationProperties.getProperties().getProperty("password_invalid");
+    }
+
 }

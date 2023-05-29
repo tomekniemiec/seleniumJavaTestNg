@@ -18,6 +18,12 @@ public class ProductsPage extends BasePage {
     @FindBys({@FindBy(css = ".inventory_item")})
     List<WebElement> productItems;
 
+    @FindBys({@FindBy(css = ".inventory_item_name")})
+    List<WebElement> productItemsName;
+
+    @FindBys({@FindBy(css = ".inventory_item_price")})
+    List<WebElement> productItemsPrice;
+
     @FindBy(css = ".shopping_cart_link")
     WebElement shoppingCartLink;
 
@@ -40,5 +46,37 @@ public class ProductsPage extends BasePage {
     public Integer getProductItemsCount() {
         WaitForElement.waitUntilElementClickable(productItems.get(0));
         return productItems.size();
+    }
+
+    public Integer getProductItemsNamesAndVerifyCharLength(int numberOfChars) {
+        WaitForElement.waitUntilElementClickable(productItemsName.get(0));
+        int count = (int) productItemsName.stream()
+                .map(WebElement::getText)
+                .filter(text -> text.length() > numberOfChars)
+                .count();
+        log().info("Count number items where names has more than " + numberOfChars + " characters: " + count);
+        return count;
+    }
+
+    public Integer getProductItemsNamesAndVerifyNameContainText(String productName) {
+        WaitForElement.waitUntilElementClickable(productItemsName.get(0));
+        int count = (int) productItemsName.stream()
+                .map(WebElement::getText)
+                .filter(text -> text.contains(productName))
+                .count();
+        log().info("Count number items where names contain text " + productName + " is: " + count);
+        return count;
+    }
+
+    public Integer getProductItemsPriceAndCheckIfValueEachOfThemIsGreaterThan(int priceOfProduct) {
+        WaitForElement.waitUntilElementClickable(productItemsName.get(0));
+        int count = (int) productItemsPrice.stream()
+                .map(WebElement::getText)
+                .map(price -> price.replace("$", ""))
+                .mapToDouble(Double::parseDouble)
+                .filter(price -> price > priceOfProduct)
+                .count();
+        log().info("Count number items where price is greater than " + priceOfProduct + " is: " + count);
+        return count;
     }
 }
