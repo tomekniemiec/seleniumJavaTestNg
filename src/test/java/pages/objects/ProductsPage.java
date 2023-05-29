@@ -49,14 +49,9 @@ public class ProductsPage extends BasePage {
         return this;
     }
 
-    public ProductsPage setOrderPriceFromLoToHi() {
+    public ProductsPage setSortOrderBy(String sortOrder) {
         Select dropdown = new Select(dropdownElement);
-        dropdown.selectByValue("lohi");
-        return this;
-    }
-    public ProductsPage setOrderNameFromAToZ() {
-        Select dropdown = new Select(dropdownElement);
-        dropdown.selectByValue("az");
+        dropdown.selectByValue(String.valueOf(sortOrder));
         return this;
     }
 
@@ -116,7 +111,7 @@ public class ProductsPage extends BasePage {
                 .allMatch(price -> price >= firstPrice);
     }
 
-    public boolean getProductNamesAndCheckIfIsSortFromAtoZ() {
+    public boolean getProductsNameAndCheckIfIsSortFromAtoZ() {
         WaitForElement.waitUntilElementClickable(productsName.get(0));
         List<String> productNames = productsName.stream()
                 .map(WebElement::getText)

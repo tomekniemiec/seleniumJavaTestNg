@@ -1,5 +1,6 @@
 package tests;
 
+import enums.SortOrder;
 import org.testng.annotations.Test;
 import pages.objects.LoginPage;
 
@@ -89,7 +90,7 @@ public class ProductsTest extends TestBase {
     public void shouldSortProductsPriceFromLoToHi() {
         LoginPage loginPage = new LoginPage();
         boolean isHigherPrice = loginPage.logIn()
-                .setOrderPriceFromLoToHi()
+                .setSortOrderBy(SortOrder.PRICE_FROM_LO_TO_HI.value())
                 .getProductPriceAndCheckIfNextProductHasHigherPrice();
 
         assertTrue(isHigherPrice, "Incorrect sorting by price from lowest to highest");
@@ -100,8 +101,8 @@ public class ProductsTest extends TestBase {
     public void shouldSortProductsNamesFromAtoZ() {
         LoginPage loginPage = new LoginPage();
         boolean isHigherPrice = loginPage.logIn()
-                .setOrderNameFromAToZ()
-                .getProductNamesAndCheckIfIsSortFromAtoZ();
+                .setSortOrderBy(SortOrder.NAME_FROM_A_TO_Z.value())
+                .getProductsNameAndCheckIfIsSortFromAtoZ();
 
         assertTrue(isHigherPrice, "Incorrect sorting by name from A to Z");
     }
