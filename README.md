@@ -18,10 +18,9 @@ the ability to run on different web browsers (configuration.properties)
 
 and 
 
-few simply tests (POM)
+- E2E tests (POM)
+- API tests (RestAssured, Lombok, POJO)
 
-
-@2023
 
 
 ![Screenshot 2023-02-23 at 16 49 48](https://user-images.githubusercontent.com/93388604/220962895-d1fed966-569d-4804-a293-132b7d614424.png)
