@@ -3,9 +3,8 @@ package pages.objects;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
-import waits.WaitForElement;
-
 import java.util.List;
+import static waits.WaitForElement.waitUntilElementClickable;
 
 public class CartPage extends BasePage {
 
@@ -17,7 +16,7 @@ public class CartPage extends BasePage {
 
     public int getProductNumberInCart() {
         if (!cartItems.isEmpty()) {
-            WaitForElement.waitUntilElementClickable(cartItems.get(0));
+            waitUntilElementClickable(cartItems.get(0));
         }
         return cartItems.size();
     }

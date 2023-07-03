@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.ui.Select;
-import waits.WaitForElement;
+import static waits.WaitForElement.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -33,18 +33,17 @@ public class ProductsPage extends BasePage {
     WebElement dropdownElement;
 
     public boolean isLogoDisplayed() {
-        WaitForElement.waitForElementVisible(logo.get(0));
+        waitForElementVisible(logo.get(0));
         return logo.size() > 0;
     }
 
     public ProductsPage addFirstProductToCart() {
-        WaitForElement.waitUntilElementClickable(addToCartButtonList.get(0));
-        addToCartButtonList.get(0).click();
+        waitUntilElementClickable(addToCartButtonList.get(0)).click();
         return this;
     }
 
     public ProductsPage addAllProductsToCart() {
-        WaitForElement.waitUntilElementClickable(addToCartButtonList.get(0));
+        waitUntilElementClickable(addToCartButtonList.get(0));
         addToCartButtonList.forEach(WebElement::click);
         return this;
     }
@@ -61,12 +60,12 @@ public class ProductsPage extends BasePage {
     }
 
     public Integer getProductCount() {
-        WaitForElement.waitUntilElementClickable(productItems.get(0));
+        waitUntilElementClickable(productItems.get(0));
         return productItems.size();
     }
 
     public Integer getProductNamesAndVerifyCharLength(int numberOfChars) {
-        WaitForElement.waitUntilElementClickable(productsName.get(0));
+        waitUntilElementClickable(productsName.get(0));
         int count = (int) productsName.stream()
                 .map(WebElement::getText)
                 .filter(text -> text.length() > numberOfChars)
@@ -76,7 +75,7 @@ public class ProductsPage extends BasePage {
     }
 
     public Integer getProductNamesAndVerifyNameContainText(String productName) {
-        WaitForElement.waitUntilElementClickable(productsName.get(0));
+        waitUntilElementClickable(productsName.get(0));
         int count = (int) productsName.stream()
                 .map(WebElement::getText)
                 .filter(text -> text.contains(productName))
@@ -86,7 +85,7 @@ public class ProductsPage extends BasePage {
     }
 
     public Integer getProductPriceAndCheckIfValueEachOfThemIsGreaterThan(int priceOfProduct) {
-        WaitForElement.waitUntilElementClickable(productsName.get(0));
+        waitUntilElementClickable(productsName.get(0));
         int count = (int) productItemsPrice.stream()
                 .map(WebElement::getText)
                 .map(price -> price.replace("$", ""))
@@ -98,7 +97,7 @@ public class ProductsPage extends BasePage {
     }
 
     public boolean getProductPriceAndCheckIfNextProductHasHigherPrice() {
-        WaitForElement.waitUntilElementClickable(productsName.get(0));
+        waitUntilElementClickable(productsName.get(0));
         List<Double> prices = productItemsPrice.stream()
                         .map(product -> {
                             String priceText = product.getText().replace("$", "");
@@ -112,7 +111,7 @@ public class ProductsPage extends BasePage {
     }
 
     public boolean getProductsNameAndCheckIfIsSortFromAtoZ() {
-        WaitForElement.waitUntilElementClickable(productsName.get(0));
+        waitUntilElementClickable(productsName.get(0));
         List<String> productNames = productsName.stream()
                 .map(WebElement::getText)
                 .collect(Collectors.toList());

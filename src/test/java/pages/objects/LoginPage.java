@@ -3,7 +3,7 @@ package pages.objects;
 import configuration.UserProperties;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import waits.WaitForElement;
+import static waits.WaitForElement.*;
 
 public class LoginPage extends BasePage {
 
@@ -21,8 +21,7 @@ public class LoginPage extends BasePage {
 
     public LoginPage typeUsername(String user) {
         log().info("Entering username: " + user);
-        WaitForElement.waitForElementVisible(userName);
-        userName.sendKeys(user);
+        waitForElementVisible(userName).sendKeys(user);
         return this;
     }
 
@@ -47,15 +46,14 @@ public class LoginPage extends BasePage {
 
     public ProductsPage clickSubmitLoginButton() {
         log().info("Clicking submit login button");
-        WaitForElement.waitUntilElementClickable(submitLoginButton);
-        submitLoginButton.click();
+        waitUntilElementClickable(submitLoginButton).click();
         return new ProductsPage();
     }
 
     public LoginPage clickSubmitLoginButtonWhenFailed() {
         log().info("Clicking submit login button");
-        WaitForElement.waitUntilElementClickable(submitLoginButton);
-        submitLoginButton.click();
+        waitUntilElementClickable(submitLoginButton).click();
+
         return this;
     }
 
