@@ -16,19 +16,16 @@ public class WaitForElement {
 
     public static WebElement waitForElementVisible(WebElement element) {
         WebDriverWait webDriverWait = getWebDriverWait();
-        WebElement elementVisible = webDriverWait.until(ExpectedConditions.elementToBeClickable(element));
-        return elementVisible;
+        return webDriverWait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
     public static WebElement waitUntilElementClickable(WebElement element) {
         WebDriverWait webDriverWait = getWebDriverWait();
-        WebElement elementClickable = webDriverWait.until(ExpectedConditions.elementToBeClickable(element));
-        return elementClickable;
+        return webDriverWait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
     public static WebElement waitForElementToBeClickable(By by) {
         WebDriverWait webDriverWait = getWebDriverWait();
-        WebElement element = webDriverWait.until(ExpectedConditions.elementToBeClickable(by));
-        return element;
+        return webDriverWait.until(ExpectedConditions.elementToBeClickable(by));
     }
 }
