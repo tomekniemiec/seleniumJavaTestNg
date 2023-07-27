@@ -10,7 +10,7 @@
     </test>
 
     <test name="Positive Login Tests">
-        <parameter name="browser" value="FIREFOX"/>
+        <parameter name="browser" value="CHROME"/>
         <classes>
             <class name="tests.PositiveLoginTest"/>
         </classes>
