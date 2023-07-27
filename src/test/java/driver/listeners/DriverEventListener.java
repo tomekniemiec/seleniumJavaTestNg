@@ -40,7 +40,7 @@ public class DriverEventListener implements WebDriverListener {
     @Override
     public void beforeClear(WebElement element) {
         WebDriverListener.super.beforeClear(element);
-        logger.info("Trying to clear WebElement");
+        logger.info("Trying to clear WebElement" + element);
     }
 
     @Override
@@ -52,13 +52,13 @@ public class DriverEventListener implements WebDriverListener {
     @Override
     public void beforeClick(WebElement element) {
         WebDriverListener.super.beforeClick(element);
-        logger.info("Trying to click WebElement");
+        logger.info("Trying to click WebElement" + element);
     }
 
     @Override
     public void afterClick(WebElement element) {
         WebDriverListener.super.afterClick(element);
-        logger.info("Clicked WebElement");
+        logger.info("Clicked WebElement - " + element);
     }
 
     @Override
