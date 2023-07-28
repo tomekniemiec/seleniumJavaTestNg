@@ -14,7 +14,7 @@ import static driver.navigation.ApplicationURLs.APPLICATION_URL;
 
 public class TestBase {
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void beforeClass() {
         PropertiesLoader propertiesLoader = new PropertiesLoader();
         Properties propertiesFromFile = propertiesLoader.getPropertiesFromFile("configuration.properties");
@@ -22,7 +22,7 @@ public class TestBase {
     }
 
     @Parameters("browser")
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeTest(@Optional BrowserType browserType) {
         DriverManager.setWebDriver(browserType);
         DriverManager.getWebDriver();
@@ -30,7 +30,7 @@ public class TestBase {
         DriverUtils.navigateToPage(APPLICATION_URL);
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void afterTest(ITestResult result) {
         DriverManager.disposeDriver();
     }
