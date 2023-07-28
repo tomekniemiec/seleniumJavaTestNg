@@ -12,7 +12,7 @@ public class FailedLoginTest extends TestBase {
 
     String MESSAGE_INCORRECT_USER_AND_PASSWORD = "Epic sadface: Username and password do not match any user in this service";
 
-    @Test
+    @Test(groups = {"login"})
     public void asUserTryToLogInWithIncorrectLoginAndPassword1() {
         LoginPage loginPage = new LoginPage();
         String errorMessage = loginPage.logIn(getUsernameStandard(), getPasswordInvalid())
@@ -22,7 +22,7 @@ public class FailedLoginTest extends TestBase {
                 "Incorrect username or password");
     }
 
-    @Test
+    @Test(groups = {"login"})
     public void asUserTryToLogInWithIncorrectLoginAndPassword2() {
         LoginPage loginPage = new LoginPage();
         String errorMessage = loginPage.logIn(getUsernameStandard(), getPasswordInvalid())
@@ -32,7 +32,7 @@ public class FailedLoginTest extends TestBase {
                 "Incorrect username or password");
     }
 
-    @Test
+    @Test(groups = {"login"})
     public void asUserTryToLogInWithIncorrectLoginAndPassword3() {
         LoginPage loginPage = new LoginPage();
         String errorMessage = loginPage.logIn(getUsernameStandard(), getPasswordInvalid())
@@ -42,7 +42,7 @@ public class FailedLoginTest extends TestBase {
                 "Incorrect username or password");
     }
 
-    @Test
+    @Test(groups = {"login"})
     public void asUserTryToLogInWithIncorrectLoginAndPassword4() {
         LoginPage loginPage = new LoginPage();
         String errorMessage = loginPage.logIn(getUsernameStandard(), getPasswordInvalid())

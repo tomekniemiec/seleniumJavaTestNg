@@ -6,7 +6,8 @@ pipeline {
         }
 
     parameters {
-            string(name: 'TEST_NAME', defaultValue: '', description: 'Enter the name of the test to run')
+            string(name: 'GROUPS', defaultValue: '', description: 'Comma-separated TestNG groups to run')
+            string(name: 'TESTS', defaultValue: '', description: 'Comma-separated TestNG test names to run')
         }
 
     stages {
@@ -16,8 +17,17 @@ pipeline {
             }
         }
         stage('Execute test') {
-            steps {
-                sh "mvn test -Dtest=${params.TEST_NAME}"
+             steps {
+                // Execute TestNG tests based on specified groups or test names
+                script {
+                    if (params.GROUPS) {
+                        sh "mvn test -Dgroups=${params.GROUPS}"
+                    } else if (params.TESTS) {
+                        sh "mvn test -Dtest=${params.TESTS}"
+                    } else {
+                        sh 'mvn test'
+                    }
+                }
             }
         }
         stage('Generate allure report') {

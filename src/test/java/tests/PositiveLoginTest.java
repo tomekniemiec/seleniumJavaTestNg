@@ -10,7 +10,7 @@ public class PositiveLoginTest extends TestBase {
 
     String MESSAGE_SHOULD_CONTAIN_LOG0 = "Should see logo after correct log in!!!";
 
-    @Test
+    @Test(groups = {"login"})
     public void asUserLoginUsingValidLoginAndPassword1() {
         LoginPage loginPage = new LoginPage();
         boolean isLogoDisplayed = loginPage.logIn()
@@ -18,7 +18,7 @@ public class PositiveLoginTest extends TestBase {
         assertTrue(isLogoDisplayed, MESSAGE_SHOULD_CONTAIN_LOG0);
     }
 
-    @Test
+    @Test(groups = {"login"})
     public void asUserLoginUsingValidLoginAndPassword2() {
         LoginPage loginPage = new LoginPage();
         boolean isLogoDisplayed = loginPage.logIn()
@@ -26,7 +26,7 @@ public class PositiveLoginTest extends TestBase {
         assertTrue(isLogoDisplayed, MESSAGE_SHOULD_CONTAIN_LOG0);
     }
 
-    @Test
+    @Test(groups = {"login"})
     public void asUserLoginUsingValidLoginAndPassword3() {
         LoginPage loginPage = new LoginPage();
         boolean isLogoDisplayed = loginPage.logIn()
@@ -34,7 +34,7 @@ public class PositiveLoginTest extends TestBase {
         assertTrue(isLogoDisplayed, MESSAGE_SHOULD_CONTAIN_LOG0);
     }
 
-    @Test
+    @Test(groups = {"login"})
     public void asUserLoginUsingValidLoginAndPassword4() {
         LoginPage loginPage = new LoginPage();
         boolean isLogoDisplayed = loginPage.logIn()
