@@ -11,7 +11,7 @@ import static utils.Helper.getLocalStorageSize;
 
 public class ProductsTest extends TestBase {
 
-    @Test
+    @Test(groups = {"product"})
     public void shouldAddProductToCart() {
         LoginPage loginPage = new LoginPage();
         Integer productsInCart = loginPage.logIn()
@@ -22,7 +22,7 @@ public class ProductsTest extends TestBase {
         assertEquals(productsInCart, 1, "Product should be added to cart");
     }
 
-    @Test
+    @Test(groups = {"product"})
     public void shouldAddFewProductsToCart() {
         LoginPage loginPage = new LoginPage();
         Integer productsInCart = loginPage.logIn()
@@ -33,7 +33,7 @@ public class ProductsTest extends TestBase {
         assertEquals(productsInCart, 6, "Product should be added to cart");
     }
 
-    @Test
+    @Test(groups = {"product"})
     public void shouldRemoveProductFromCart() {
         LoginPage loginPage = new LoginPage();
         Integer productsInCart = loginPage.logIn()
@@ -45,7 +45,7 @@ public class ProductsTest extends TestBase {
         assertEquals(productsInCart, 0, "Product should be removed to cart");
     }
 
-    @Test
+    @Test(groups = {"product"})
     public void shouldSeeCorrectNumberOfProducts() {
         LoginPage loginPage = new LoginPage();
         Integer numberOfProducts = loginPage.logIn()
@@ -54,7 +54,7 @@ public class ProductsTest extends TestBase {
         assertEquals(numberOfProducts, 6, "Incorrect number of products");
     }
 
-    @Test
+    @Test(groups = {"product"})
     public void shouldNotSeeProductsInCartAfterLoginByLocalStorage() {
         LoginPage loginPage = new LoginPage();
         loginPage.logIn();
@@ -62,7 +62,7 @@ public class ProductsTest extends TestBase {
         assertEquals(getLocalStorageSize(), 0, "Incorrect number of products in cart");
     }
 
-    @Test
+    @Test(groups = {"product"})
     public void shouldProductNameContainMoreThan10Char() {
         LoginPage loginPage = new LoginPage();
         int count = loginPage.logIn().getProductNamesAndVerifyCharLength(10);
@@ -70,7 +70,7 @@ public class ProductsTest extends TestBase {
         assertEquals(count, 6, "Incorrect number of products whose name contains more than 10 characters");
     }
 
-    @Test
+    @Test(groups = {"product"})
     public void shouldProductNameContainTextSauce() {
         LoginPage loginPage = new LoginPage();
         int count = loginPage.logIn().getProductNamesAndVerifyNameContainText("Sauce");
@@ -78,7 +78,7 @@ public class ProductsTest extends TestBase {
         assertEquals(count, 5, "Incorrect number of products whose name contains 'Sauce'");
     }
 
-    @Test
+    @Test(groups = {"product"})
     public void shouldProductPriceEachOfThemIsGreaterThan5Dollar() {
         LoginPage loginPage = new LoginPage();
         int count = loginPage.logIn().getProductPriceAndCheckIfValueEachOfThemIsGreaterThan(5);
@@ -86,7 +86,7 @@ public class ProductsTest extends TestBase {
         assertEquals(count, 6, "Incorrect number of products whose price is grater than 5$");
     }
 
-    @Test
+    @Test(groups = {"product"})
     public void shouldSortProductsPriceFromLoToHi() {
         LoginPage loginPage = new LoginPage();
         boolean isHigherPrice = loginPage.logIn()
@@ -97,7 +97,7 @@ public class ProductsTest extends TestBase {
     }
 
 
-    @Test
+    @Test(groups = {"product"})
     public void shouldSortProductsNamesFromAtoZ() {
         LoginPage loginPage = new LoginPage();
         boolean isHigherPrice = loginPage.logIn()

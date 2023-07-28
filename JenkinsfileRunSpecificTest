@@ -6,8 +6,8 @@ pipeline {
         }
 
     parameters {
-            string(name: 'GROUPS', defaultValue: '', description: 'Comma-separated TestNG groups to run')
-            string(name: 'TESTS', defaultValue: '', description: 'Comma-separated TestNG test names to run')
+            choice(name: 'GROUPS', choices: ['login', 'product', 'api'], description: 'groups to run')
+            string(name: 'TESTS', defaultValue: '', description: 'test names to run, example: ProductsTest')
         }
 
     stages {

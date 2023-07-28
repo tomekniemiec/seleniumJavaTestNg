@@ -15,14 +15,14 @@ import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;
 
 public class CreatePetTests {
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setupConfiguration(){
         RestAssured.baseURI = "https://swaggerpetstore.przyklady.javastart.pl";
         RestAssured.basePath = "v2";
         RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
     }
 
-    @Test
+    @Test(groups = {"api"})
     public void givenPetWhenPostPetThenPetIsCreatedTest(){
         Category category = new Category();
         category.setId(1);
