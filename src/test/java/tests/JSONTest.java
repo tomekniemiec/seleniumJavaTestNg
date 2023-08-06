@@ -1,53 +1,33 @@
 package tests;
 
 import org.testng.annotations.Test;
+import utils.Helper;
 import utils.JSONUtils;
 
 import static org.testng.Assert.assertTrue;
 
 public class JSONTest extends TestBase {
 
+    String data = Helper.getJsonFile("src/test/java/dataTest/data.json");
+
     @Test(groups = {"json"})
-    public void shouldHasNestedValue() {
-        String jsonString = "{\n" +
-                "  \"name\": \"John Smith\",\n" +
-                "  \"age\": 30,\n" +
-                "  \"address\": {\n" +
-                "    \"street\": \"123 Main Street\",\n" +
-                "    \"city\": \"Exampletown\",\n" +
-                "    \"zip\": \"54321\",\n" +
-                "    \"country\": \"USA\",\n" +
-                "    \"coordinates\": {\n" +
-                "      \"latitude\": 40.7128,\n" +
-                "      \"longitude\": -74.0060\n" +
-                "    }\n" +
-                "  },\n" +
-                "  \"contact\": {\n" +
-                "    \"email\": \"john.smith@example.com\",\n" +
-                "    \"phone\": \"+1 555-123-4567\",\n" +
-                "    \"social\": {\n" +
-                "      \"twitter\": \"@johnsmith\",\n" +
-                "      \"linkedin\": \"john.smith\"\n" +
-                "    }\n" +
-                "  },\n" +
-                "  \"orders\": [\n" +
-                "    {\n" +
-                "      \"id\": \"12345\",\n" +
-                "      \"product\": \"Widget\",\n" +
-                "      \"quantity\": 2\n" +
-                "    },\n" +
-                "    {\n" +
-                "      \"id\": \"67890\",\n" +
-                "      \"product\": \"Gadget\",\n" +
-                "      \"quantity\": 1\n" +
-                "    }\n" +
-                "  ]\n" +
-                "}\n";
+    public void shouldHasNestedValueForName() {
+        String[] nestedFieldsForName = {"name"};
+        assertTrue(JSONUtils.hasNestedValue(data, "John Smith", nestedFieldsForName),
+                "Does the value 'John Smith' exist in the nested field 'name'?");
+    }
 
-        String[] nestedFields = {"orders", "0", "product"};
-        boolean hasDesiredValue = JSONUtils.hasNestedValue(jsonString, "Widget", nestedFields);
+    @Test(groups = {"json"})
+    public void shouldHasNestedValueForTwitter() {
+        String[] nestedFieldsForTwitter = {"contact", "social", "twitter"};
+        assertTrue(JSONUtils.hasNestedValue(data, "@johnsmith", nestedFieldsForTwitter),
+                "Does the value '@johnsmith' exist in the nested field 'contact.social.twitter'?");
+    }
 
-        assertTrue(hasDesiredValue, "Does the value 'Widget' exist in the nested field 'orders[0].product'?");
-
+    @Test(groups = {"json"})
+    public void shouldHasNestedValueForProduct() {
+        String[] nestedFieldsForProduct = {"orders", "0", "product"};
+        assertTrue(JSONUtils.hasNestedValue(data, "Widget", nestedFieldsForProduct),
+                "Does the value 'Widget' exist in the nested field 'orders[0].product'?");
     }
 }
