@@ -6,7 +6,7 @@ import utils.JSONUtils;
 
 import static org.testng.Assert.assertTrue;
 
-public class JSONTest extends TestBase {
+public class JsonTest {
 
     String data = Helper.getJsonFile("src/test/java/dataTest/data.json");
 
