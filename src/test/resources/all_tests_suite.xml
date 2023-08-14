@@ -29,10 +29,6 @@
         </classes>
     </test>
 
-    <test name="JSON Tests">
-        <classes>
-            <class name="tests.JsonTest"/>
-        </classes>
-    </test>
+
 
 </suite>

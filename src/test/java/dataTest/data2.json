@@ -1,0 +1,21 @@
+{
+  "event": "dlPromoClick",
+  "ecommerce": {
+    "promoClick": {
+      "promotions": [
+        {
+          "id": 1,
+          "name": "promo name",
+          "position": "position lower",
+          "creative": "creative value"
+        },
+        {
+          "id": 2,
+          "name": "promo name2",
+          "position": "position lower2",
+          "creative": "creative value2"
+        }
+      ]
+    }
+  }
+}

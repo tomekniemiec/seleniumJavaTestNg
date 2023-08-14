@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.Browser;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -35,6 +36,8 @@ public class BrowserFactory {
                     if (TestRunProperties.getHeadlessModeToRun()) {
                         co.addArguments("--headless");
                     }
+                    desiredCapabilities.setBrowserName((Browser.CHROME.browserName()));
+                    desiredCapabilities.setVersion("115");
                     desiredCapabilities.merge(co);
                     return getRemoteWebDriver(desiredCapabilities);
                 case FIREFOX:
